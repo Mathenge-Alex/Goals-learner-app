@@ -2,10 +2,12 @@
 <div>
     <h1>My goals</h1>
     <!-- ngFor is a for loop -->
-    <ul>
-        <li *ngFor = 'let goal of goals'> {{goal.name}} 
-            <app-goal-detail [goal]='goal'></app-goal-detail>
-        </li>
-    </ul>
-    <p *ngIf='goals.length > 5'>Your goals are too many</p></div>
-<p>Hello!</p>
+    <hr>
+<ul>
+  <div *ngFor='let goal of goals;let i = index'>
+    <li>{{goal.name}}</li>
+    <button (click)='toggleDetails(i)'>Toggle Details</button>
+    <app-goal-detail  *ngIf='goal.showDescription' [goal]='goal' (isComplete) = 'completeGoal($event,i)'></app-goal-detail>
+  </div>
+</ul>
+<p *ngIf='goals.length > 5'>You have too many goals</p>

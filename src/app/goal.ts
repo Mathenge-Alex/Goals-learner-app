@@ -1,5 +1,16 @@
+// export class Goal {
+//     showDescription!: boolean;
+
+//     constructor(){
+//         public id: number;
+//         public name: string;
+//         public desc: string;
+//     }
+//     }
+   
 export class Goal {
-    id!: number;
-    name!: string;
-    desc!: string;
+  showDescription: boolean;
+  constructor(public id: number,public name: string,public description: string){
+    this.showDescription=false;
+  }
 }
